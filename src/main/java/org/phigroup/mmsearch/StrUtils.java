@@ -144,8 +144,8 @@ public class StrUtils {
     }
 
     /** Return file contents as a list of strings. */
-    public static List readList(String fname) throws IOException {
-        List list = new LinkedList();
+    public static List<String> readList(String fname) throws IOException {
+        List<String> list = new LinkedList<>();
         BufferedReader in = new BufferedReader(new FileReader(fname));
         while (in.ready()) {
             String s = in.readLine();

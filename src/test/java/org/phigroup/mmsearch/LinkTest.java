@@ -42,6 +42,6 @@ public class LinkTest extends JFrame {
 	public static void main(String[] args) {
 		LinkTest linkTest = new LinkTest();
 		linkTest.setSize(640, 100);
-		linkTest.show();
+		linkTest.setVisible(true);
 	}
 }

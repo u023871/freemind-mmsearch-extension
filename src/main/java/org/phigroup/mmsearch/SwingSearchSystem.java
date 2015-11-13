@@ -50,7 +50,7 @@ public class SwingSearchSystem {
      */
     void saveProperties() throws IOException {
         FileOutputStream out = new FileOutputStream("SearchSystem.properties");
-        properties.save(out, null);
+        properties.store(out, "saving search system properties");
         out.close();
     }
 
@@ -109,7 +109,7 @@ public class SwingSearchSystem {
     public MMNode scanMM(Node curRec) {
         MMNode curMM = new MMNode();
         curMM.name = getMMText(curRec);
-        List subNodes = new ArrayList();
+        List<MMNode> subNodes = new ArrayList<>();
         Node[] recs = getElements(curRec);
         for (int i=0; i<recs.length; i++) {
             Node rec = recs[i];
@@ -121,7 +121,7 @@ public class SwingSearchSystem {
     }
 
     /**
-     * TODO
+     * wrap file into node
      * @param fname
      * @param root
      * @return
@@ -134,12 +134,6 @@ public class SwingSearchSystem {
 
         String absolutePath = properties.get("startingPath") + File.separator + fname;
 
-        if(absolutePath != null && absolutePath.length() > 0) {
-
-//        	absolutePath = absolutePath.substring(1);
-        }
-
-        System.out.println("");
         System.out.println(absolutePath);
         froot.mmFilePath = new File(absolutePath);
 
@@ -151,8 +145,8 @@ public class SwingSearchSystem {
         ss.run();
     }
 
-    List getMindMapNames() {
-        ArrayList fnames = new ArrayList();
+    List<String> getMindMapNames() {
+        ArrayList<String> fnames = new ArrayList<>();
         String[] filelist = new File(startingPath).list();
         for (int i=0; i<filelist.length; i++) {
             if (!filelist[i].endsWith(".mm")) continue;
@@ -163,16 +157,16 @@ public class SwingSearchSystem {
         return fnames;
     }
 
-    MMNode readMindMaps(List fnames) throws SAXException, IOException, ParserConfigurationException {
+    MMNode readMindMaps(List<String> fnames) throws SAXException, IOException, ParserConfigurationException {
         JLabel status = new JLabel();
         status.setPreferredSize(new Dimension(400,20));
         JFrame statusFrame = frame(status);
 
         long start = System.currentTimeMillis();
-        List roots = new LinkedList();
+        List<MMNode> roots = new LinkedList<>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setValidating(false);
-        for (Iterator iter = fnames.iterator(); iter.hasNext();) {
+        for (Iterator<String> iter = fnames.iterator(); iter.hasNext();) {
             String fname = (String) iter.next();
             status.setText("File "+fname);
             System.out.print(".");
@@ -195,13 +189,12 @@ public class SwingSearchSystem {
         loadProperties();
         searchCriteria = properties.getProperty("searchCriteria");
         startingPath = properties.getProperty("startingPath");
-//        setSearchCriteria();
         setStartingPath();
 
         if (maxCount>0)
             print("max count: "+maxCount);
 
-        List fnames = getMindMapNames();
+        List<String> fnames = getMindMapNames();
         print(fnames.size()+" mindmaps found");
 
         MMNode unfiltered = readMindMaps(fnames);
@@ -243,7 +236,7 @@ public class SwingSearchSystem {
 
         });
     	frame.pack();
-    	frame.show();
+    	frame.setVisible(true);
     	return frame;
     }
 

@@ -16,6 +16,11 @@ import javax.swing.tree.TreeSelectionModel;
 /** * * @author Ian Schneider */
 public class LinkTest2 extends JApplet {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 928474319146130776L;
+
 	/** Creates a new instance of ControlApplet */
 	public LinkTest2() {
 	}

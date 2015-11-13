@@ -5,7 +5,7 @@
 	<artifactId>freemind-mmsearch-extension</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>freemind-mmsearch-extension</name>
-	<description>FreeMind Search Tool enhancement of mmsearch made by Abramovich_E (http://sourceforge.net/projects/freemind/)</description>
+	<description>Enhancement of FreeMind Search (Java Swing-) Tool "mmsearch" made by Abramovich_E (http://sourceforge.net/p/freemind/patches/91/)</description>
 
 	<scm>
 		<url>https://github.com/u023871/freemind-mmsearch-extension</url>
@@ -20,9 +20,8 @@
 
 	<developers>
 		<developer>
-			<name>Lars Ihlenfeld</name>
 			<id>u023871</id>
-			<organization>Phigroup</organization>
+			<organization>[PHi]GRouP</organization>
 			<roles>
 				<role>Lead</role>
 			</roles>

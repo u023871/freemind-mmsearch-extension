@@ -15,7 +15,7 @@ import org.w3c.dom.NodeList;
 public class XmlUtils {
 
     public static Node[] getElements(Node parent, String name) {
-        ArrayList result = new ArrayList();
+        ArrayList<Node> result = new ArrayList<>();
         NodeList nodelist = parent.getChildNodes();
         for (int i = 0; i < nodelist.getLength(); i++) {
             Node node = nodelist.item(i);

@@ -9,9 +9,6 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URLEncoder;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,7 +21,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -94,13 +90,10 @@ public class SwingFilteredTree {
                         DefaultMutableTreeNode mut = (DefaultMutableTreeNode) paths[i].getLastPathComponent();
                         if (mut.getUserObject() instanceof MMNode) {
                             MMNode dir = (MMNode) mut.getUserObject();
-                            long start = System.currentTimeMillis();
-                            //int count = countSubnodes(dir);
+
                             int count = countLeaves(dir);
                             treeStatus.setText("  "
                                     + countLeavesStr(count)
-                                    //+ count +" nodes inside"
-                                    //+",   counting time: "+TimeDiff.timeFrom(start)
                             );
 
                             // LI: add link opening on tree selection
@@ -214,7 +207,7 @@ public class SwingFilteredTree {
     }
 
     void removeUnfiltered(MMNode dir) {
-        List result = new LinkedList();
+        List<MMNode> result = new LinkedList<>();
         for (int i=0; i<dir.subNodes.length; i++) {
             MMNode dir2 = dir.subNodes[i];
             if (dir2.filtered) {
