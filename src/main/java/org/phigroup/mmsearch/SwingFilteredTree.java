@@ -191,8 +191,16 @@ public class SwingFilteredTree {
     }
 
     boolean satisfyFilter(String s) {
-        s = s.toLowerCase();
-        return s.indexOf(searchCriteria)>=0;
+
+    	boolean b = false;
+
+    	if(s != null && s.length() > 0) {
+
+        	s = s.toLowerCase();
+        	b = s.indexOf(searchCriteria) >= 0;
+    	}
+
+        return b;
     }
 
     public void checkFilter(MMNode dir) {
