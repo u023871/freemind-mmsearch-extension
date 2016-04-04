@@ -10,7 +10,7 @@
 	<scm>
 		<url>https://github.com/u023871/freemind-mmsearch-extension</url>
 		<connection>scm:git:https://github.com/u023871/freemind-mmsearch-extension.git</connection>
-		<developerConnection>scm:svn:https://vmh-devbase-svn.lsy.fra.dlh.de/svn/progress/web-interfaces/governor-ws-client/trunk</developerConnection>
+		<developerConnection>scm:git:https://github.com/u023871/freemind-mmsearch-extension.git</developerConnection>
 	</scm>
 
 	<issueManagement>
